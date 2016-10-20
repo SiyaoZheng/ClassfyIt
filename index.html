@@ -1,0 +1,53 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <style scoped>
+
+    .button-success,
+    .button-error,
+    .button-warning,
+    .button-secondary {
+        color: white;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .button-success {
+        background: rgb(28, 184, 65); /* this is a green */
+    }
+
+    .button-error {
+        background: rgb(202, 60, 60); /* this is a maroon */
+    }
+
+    .button-warning {
+        background: rgb(223, 117, 20); /* this is an orange */
+    }
+
+    .button-secondary {
+        background: rgb(66, 184, 221); /* this is a light blue */
+    }
+
+  </style>
+<body>
+  <center>
+  <h1>文本标注工具v0.1</h1>
+  <table class="pure-table pure-table-bordered">
+  <tr><td>文本</td><td colspan="2" align="center">选项</td></tr>
+  {% for text in texts %}
+
+  <tr>
+    <td><p>{{text}}</p></td>
+    <td><p><a class="button-success pure-button" href='?action_type=label&label=True&text={{text}}&page={{page}}'>保守</a></p></td>
+    <td><p><a class="button-secondary pure-button" href='?action_type=label&label=False&text={{text}}&page={{page}}'>自由</a></p></td>
+ </tr>
+  {% end %}
+  </table>
+  <a class="pure-button" href='?action_type=page&page={{page}}'>下一页</a>
+  <div>当前页面:{{page}}</div>
+
+</center>
+</body>
+</html>
